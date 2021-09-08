@@ -3,10 +3,8 @@ const mongoose = require("mongoose");
 const app = express();
 const session = require('express-session');
 const logger = require("../src/js/logger");
-const User = require("../src/models/user");
-const crypto = require("crypto");
 const PORT = 5050;
-const mongoURL = "CENSORED";
+const mongoURL = "mongodb+srv://EmtSdgRDdYYTshrZqmWb:MR8nfZwnDH3M0xXFHGL9$jbF!e&M9AnaER$&vrSwP$JJKvPI3A@qubyt.2dpxo.mongodb.net/openstreams?retryWrites=true&w=majority";
 
 /* 
     Static Folders

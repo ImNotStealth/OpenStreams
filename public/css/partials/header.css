@@ -1,0 +1,147 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+    background-color: var(--login-color);
+}
+
+.nav__links a,
+.cta,
+.overlay__content a {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  color: #edf0f1;
+  text-decoration: none;
+}
+
+.nav__links {
+  list-style: none;
+  display: flex;
+}
+
+.nav__links li {
+  padding: 0px 20px;
+}
+
+.nav__links li a {
+  transition: color 0.3s ease 0s;
+}
+
+.nav__links li a:hover {
+  color: #0088a9;
+}
+
+.main-link {
+  color: white;
+  font-family: "Raleway", sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.25s ease-in-out;
+}
+
+.main-link:hover {
+  filter: drop-shadow(5px 5px 5px #000);
+}
+
+.cta {
+    border: none;
+    border-radius: 10px;
+    margin-left: 20px;
+    padding: 0 20px 0 20px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    text-shadow: 2px 3px 4px var(--shadow-color);
+    text-decoration-line: none;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+    background-color: var(--button-color);
+    cursor: pointer;
+    width: auto;
+    height: 50px;
+    filter: drop-shadow(2px 3px 4px var(--shadow-color));
+    transition: 0.25s ease-in-out;
+}
+
+.cta:hover {
+    background-color: var(--button-hover-color);
+}
+
+/*
+    MOBILE
+*/
+.menu {
+  display: none;
+}
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  background-color: #24252a;
+  overflow-x: hidden;
+  transition: width 0.5s ease 0s;
+}
+
+.overlay--active {
+  width: 100%;
+}
+
+.overlay__content {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay a {
+  padding: 15px;
+  font-size: 36px;
+  display: block;
+  transition: color 0.3s ease 0s;
+}
+
+.overlay a:hover,
+.overlay a:focus {
+  color: #0088a9;
+}
+.overlay .close {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+  color: #edf0f1;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {
+    font-size: 20px;
+  }
+  .overlay .close {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .nav__links,
+  .cta {
+    display: none;
+  }
+  .menu {
+    display: initial;
+  }
+}

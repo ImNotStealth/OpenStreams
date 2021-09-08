@@ -16,7 +16,7 @@ router.post('/', (req, res) => {
 				req.session.password = password;
 				res.redirect('/');
 			} else {
-				req.session.error = "Invalid Crendentials";
+				req.session.error = "Invalid Credentials";
                 res.redirect("/");
                 req.session.error = "";
 			}
