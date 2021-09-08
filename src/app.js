@@ -1,11 +1,18 @@
 const express = require("express");
+const mongoose = require("mongoose");
 const app = express();
 const session = require('express-session');
+const logger = require("../src/js/logger");
+const User = require("../src/models/user");
+const crypto = require("crypto");
 const PORT = 5050;
+const mongoURL = "CENSORED";
 
 /* 
     Static Folders
 */
+logger.info("Initializing OpenStreams.", "INIT");
+logger.info("Setting up Express Settings.", "INIT");
 app.use(express.static('public'));
 app.use(session({
 	secret: 'secret',
@@ -28,11 +35,37 @@ app.set('view engine', 'ejs');
     Routes
 */
 const loginRouter = require('../src/routes/login');
+const authRouter = require("../src/routes/auth");
 const noPageRouter = require('../src/routes/404');
 
-app.listen(PORT, () => {
-    console.log(`OpenStreams is now running on port http://localhost:${PORT}`);
-})
+runStartup();
 
 app.use('/', loginRouter);
+app.use("/auth", new authRouter(mongoose));
 app.use(noPageRouter);
+
+function runStartup() {
+    mongoose.connect(mongoURL, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    }).then((result) => {
+        logger.info("Successfully connected to MongoDB.", "DB");
+        app.listen(PORT, () => {
+            logger.info(`OpenStreams is now running on port http://localhost:${PORT}`);
+        })
+    }).catch((err) => {
+        logger.error(`Failed to connect to MongoDB (${err})`, "DB");
+        //throw err;
+    })
+
+    /*const user = new User({
+        _id: "Stealth",
+        username: "Stealth",
+        password: crypto.createHash("sha256").update("MC!s0ldButC00l!").digest("hex")
+    })
+    user.save().then((result) => {
+        console.log(result);
+    }).catch((error) => {
+        logger.error(error);
+    });*/
+}

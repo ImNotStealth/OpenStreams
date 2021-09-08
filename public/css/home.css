@@ -1,0 +1,140 @@
+body {
+    background-color: #1c1c1c;
+
+    --login-color: #2c2c2c;
+    --shadow-color: #181515;
+    --button-color: #252525;
+    --button-hover-color: #303030;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px
+}
+
+::-webkit-scrollbar-corner {
+	display: none
+}
+
+::-webkit-scrollbar-track {
+	background: #2c2c2c;
+	border-radius: 8px
+}
+
+::-webkit-scrollbar-thumb {
+	background: #555;
+	border-radius: 8px
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #444;
+	border-radius: 8px
+}
+
+.title {
+    font-family: 'Raleway', sans-serif;
+    font-size: max(max(3vw, 50px), min(8vw, 80px));
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 3px 3px 5px var(--shadow-color);
+    color: white;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.account-logout {
+    right: 10px;
+    top: 10px;
+}
+
+
+/*
+  COSMETICS CSS
+*/
+@media only screen and (max-width: 800px) {
+  
+  .cosmetic-grid {
+    display: grid;
+    margin: 50px 0 0 50px;
+    grid-template-columns: repeat(1, 250px); 
+    grid-template-rows: repeat(1, 300px); 
+    grid-template-areas: 
+        "."
+        "."
+  }
+}
+
+.cosmetic-grid {
+  display: grid;
+  margin: 50px 0 0 50px;
+  grid-template-columns: repeat(7, 250px); 
+  grid-template-rows: repeat(7, 300px); 
+  gap: 20px 20px; 
+  grid-template-areas: 
+      ". . . . . . ."
+      ". . . . . . ."
+}
+
+.cosmetic {
+  background-color: var(--button-color);
+  filter: drop-shadow(2px 3px 4px var(--shadow-color));
+  border-radius: 20px;
+  border: none;
+  width: 250px;
+  height: 300px;
+  transition: 0.25s ease-in-out;
+}
+
+.cosmetic:hover {
+  background-color: var(--button-hover-color);
+  cursor: pointer;
+}
+
+.cosmetic-img {
+  width: 250px;
+  height: 300px;
+  border-radius: 20px;
+}
+
+.cosmetic-title-background {
+  background-color: #4d4d4d;
+  width: 250px;
+  height: 75px;
+  position: relative;
+  bottom: 78px;
+  border-radius: 0 0 20px 20px;
+}
+
+.cosmetic-title {
+  color: white;
+  font-family: 'Raleway', 'sans-serif';
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  text-shadow: 3px 3px 5px var(--shadow-color);
+  position: relative;
+  top: 30%;
+  vertical-align: middle;
+}
+
+/*.cosmetic-add {
+  position: absolute;
+  bottom: 70px;
+  right: 70px;
+  width: 50px;
+  height: 50px;
+  border-radius: 20px;
+  border: none;
+  background-color: var(--button-color);
+  color: white;
+  font-size: 40px;
+  filter: drop-shadow(2px 3px 4px var(--shadow-color));
+  transition: 0.25s ease-in-out;
+}
+
+.cosmetic-add:hover {
+  background-color: var(--button-hover-color);
+  cursor: pointer;
+}*/
