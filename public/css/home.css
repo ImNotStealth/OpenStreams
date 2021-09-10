@@ -70,13 +70,11 @@ body {
 }
 .container:after {
   display: block;
-  content: " placeholder ";
+  content: "";
   margin: 10px;
+  width: 250px;
+  height: 300px;
   flex: 999 999 auto;
-}
-.item {
-  flex: 1 0 auto;
-  margin: 10px;
 }
 
 .video {
@@ -87,6 +85,8 @@ body {
   width: 250px;
   height: 300px;
   transition: 0.25s ease-in-out;
+  flex: 1 0 auto;
+  margin: 10px;
 }
 
 .video:hover {
