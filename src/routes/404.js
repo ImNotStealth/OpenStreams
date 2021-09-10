@@ -10,7 +10,7 @@ router.use(async(req, res) => {
     }
 
     if (req.accepts('json')) {
-        res.json({ error: 'Page not found.' });
+        res.json({ "error": 'Page not found.' });
         return;
     }
 })

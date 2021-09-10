@@ -35,11 +35,13 @@ app.set('view engine', 'ejs');
 const loginRouter = require('../src/routes/login');
 const authRouter = require("../src/routes/auth");
 const noPageRouter = require('../src/routes/404');
+const videoRouter = require("../src/routes/video");
 
 runStartup();
 
 app.use('/', loginRouter);
 app.use("/auth", new authRouter(mongoose));
+app.use("/watch", videoRouter);
 app.use(noPageRouter);
 
 function runStartup() {
@@ -52,8 +54,8 @@ function runStartup() {
             logger.info(`OpenStreams is now running on port http://localhost:${PORT}`);
         })
     }).catch((err) => {
-        logger.error(`Failed to connect to MongoDB (${err})`, "DB");
-        //throw err;
+        //logger.error(`Failed to connect to MongoDB (${err})`, "DB");
+        throw err;
     })
 
     /*const user = new User({

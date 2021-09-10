@@ -15,5 +15,8 @@
     <%- include('partials/header.ejs'); %>
     <p class="title">Welcome Home, <%=session.username%></p>
     <p class="subtitle">What will you watch today?</p>
+    <video id="videoPlayer" width="650" controls autoplay>
+        <source src="/watch" type="video/mp4" />
+      </video>
 </body>
 </html>
