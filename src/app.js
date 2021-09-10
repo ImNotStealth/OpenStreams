@@ -34,14 +34,18 @@ app.set('view engine', 'ejs');
 */
 const loginRouter = require('../src/routes/login');
 const authRouter = require("../src/routes/auth");
-const noPageRouter = require('../src/routes/404');
 const videoRouter = require("../src/routes/video");
+
+const apiVideoRouter = require("../src/routes/api/apiVideo");
+
+const noPageRouter = require('../src/routes/404');
 
 runStartup();
 
 app.use('/', loginRouter);
 app.use("/auth", new authRouter(mongoose));
 app.use("/watch", videoRouter);
+app.use("/api/video", new apiVideoRouter(mongoose));
 app.use(noPageRouter);
 
 function runStartup() {

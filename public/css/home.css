@@ -60,34 +60,26 @@ body {
 }
 
 
-/*
-  COSMETICS CSS
-*/
-@media only screen and (max-width: 800px) {
-  
-  .cosmetic-grid {
-    display: grid;
-    margin: 50px 0 0 50px;
-    grid-template-columns: repeat(1, 250px); 
-    grid-template-rows: repeat(1, 300px); 
-    grid-template-areas: 
-        "."
-        "."
-  }
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: start;
+  align-items: auto;
+  align-content: start
+}
+.container:after {
+  display: block;
+  content: " placeholder ";
+  margin: 10px;
+  flex: 999 999 auto;
+}
+.item {
+  flex: 1 0 auto;
+  margin: 10px;
 }
 
-.cosmetic-grid {
-  display: grid;
-  margin: 50px 0 0 50px;
-  grid-template-columns: repeat(7, 250px); 
-  grid-template-rows: repeat(7, 300px); 
-  gap: 20px 20px; 
-  grid-template-areas: 
-      ". . . . . . ."
-      ". . . . . . ."
-}
-
-.cosmetic {
+.video {
   background-color: var(--button-color);
   filter: drop-shadow(2px 3px 4px var(--shadow-color));
   border-radius: 20px;
@@ -97,18 +89,18 @@ body {
   transition: 0.25s ease-in-out;
 }
 
-.cosmetic:hover {
+.video:hover {
   background-color: var(--button-hover-color);
   cursor: pointer;
 }
 
-.cosmetic-img {
+.video-img {
   width: 250px;
   height: 300px;
   border-radius: 20px;
 }
 
-.cosmetic-title-background {
+.video-title-background {
   background-color: #4d4d4d;
   width: 250px;
   height: 75px;
@@ -117,7 +109,7 @@ body {
   border-radius: 0 0 20px 20px;
 }
 
-.cosmetic-title {
+.video-title {
   color: white;
   font-family: 'Raleway', 'sans-serif';
   font-weight: bold;
@@ -128,23 +120,3 @@ body {
   top: 30%;
   vertical-align: middle;
 }
-
-/*.cosmetic-add {
-  position: absolute;
-  bottom: 70px;
-  right: 70px;
-  width: 50px;
-  height: 50px;
-  border-radius: 20px;
-  border: none;
-  background-color: var(--button-color);
-  color: white;
-  font-size: 40px;
-  filter: drop-shadow(2px 3px 4px var(--shadow-color));
-  transition: 0.25s ease-in-out;
-}
-
-.cosmetic-add:hover {
-  background-color: var(--button-hover-color);
-  cursor: pointer;
-}*/

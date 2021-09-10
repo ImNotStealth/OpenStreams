@@ -5,8 +5,27 @@ const request = require("request");
 
 router.get('', async(req, res) => {
     const range = req.headers.range;
-    if (range === undefined) return;
-    const url = "https://cdn.qubyt.net/open-streams/kung-fu-panda.MP4";
+    console.log(range);
+    let start;
+    let end;
+    if (range) {
+        const bytesPrefix = "bytes=";
+        if (range.startsWith(bytesPrefix)) {
+            const bytesRange = range.substring(bytesPrefix.length);
+            const parts = bytesRange.split("-");
+            if (parts.length === 2) {
+                const rangeStart = parts[0] && parts[0].trim();
+                if (rangeStart && rangeStart.length > 0) {
+                    start = parseInt(rangeStart);
+                }
+                const rangeEnd = parts[1] && parts[1].trim();
+                if (rangeEnd && rangeEnd.length > 0) {
+                    end = parseInt(rangeEnd);
+                }
+            }
+        }
+    }
+    const url = "https://cdn.qubyt.net/open-streams/videos/HgTwBgOW0nMw1qqxPytm3NoQlVFNCX.MP4";
     let options;
     request({
         url: url,
@@ -18,6 +37,7 @@ router.get('', async(req, res) => {
 
       
     function setResponseHeaders(headers){
+        if (!range) return;
         positions = range.replace(/bytes=/, "").split("-");
         start = parseInt(positions[0], 10); 
         total = headers['content-length'];
@@ -26,7 +46,7 @@ router.get('', async(req, res) => {
 
         res.writeHead(206, { 
             "Content-Range": "bytes " + start + "-" + end + "/" + total, 
-            "Accept-Ranges": "bytes",
+            "Accept-Ranges": range,
             "Content-Length": chunksize,
             "Content-Type":"video/mp4"
         });
@@ -42,28 +62,6 @@ router.get('', async(req, res) => {
         };
         request(options).pipe(res);
     }
-
-    /*const range = req.headers.range;
-    if (range === undefined) return;
-    const videoPath = './spiderverse.mp4';
-    const videoSize = fs.statSync(videoPath).size;
-
-    const chunkSize = 1 * 1e+6;
-    const start = Number(range.replace(/\D/g, ''));
-    const end = Math.min(start + chunkSize, videoSize - 1);
-
-    const contentLength = end - start + 1;
-
-    const headers = {
-        "Content-Range": `bytes ${start}-${end}/${videoSize}`,
-        "Accept-Ranges": "bytes",
-        "Content-Length": contentLength,
-        "Content-Type": "video/mp4"
-    }
-    res.writeHead(206, headers);
-
-    const stream = fs.createReadStream(videoPath, { start, end });
-    stream.pipe(res);*/
 });
 
 module.exports = router;
