@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const app = express();
 const session = require('express-session');
 const logger = require("../src/js/logger");
+const package = require("../package.json");
 const PORT = 5050;
 const mongoURL = "mongodb+srv://EmtSdgRDdYYTshrZqmWb:MR8nfZwnDH3M0xXFHGL9$jbF!e&M9AnaER$&vrSwP$JJKvPI3A@qubyt.2dpxo.mongodb.net/openstreams?retryWrites=true&w=majority";
 
@@ -34,7 +35,7 @@ app.set('view engine', 'ejs');
 */
 const loginRouter = require('../src/routes/login');
 const authRouter = require("../src/routes/auth");
-const videoRouter = require("../src/routes/video");
+const watchRouter = require("../src/routes/watch");
 
 const apiVideoRouter = require("../src/routes/api/apiVideo");
 
@@ -44,7 +45,7 @@ runStartup();
 
 app.use('/', loginRouter);
 app.use("/auth", new authRouter(mongoose));
-app.use("/watch", videoRouter);
+app.use("/watch", watchRouter);
 app.use("/api/video", new apiVideoRouter(mongoose));
 app.use(noPageRouter);
 
@@ -55,7 +56,7 @@ function runStartup() {
     }).then((result) => {
         logger.info("Successfully connected to MongoDB.", "DB");
         app.listen(PORT, () => {
-            logger.info(`OpenStreams is now running on port http://localhost:${PORT}`);
+            logger.info(`OpenStreams ${package.version} is now running on port http://localhost:${PORT}`);
         })
     }).catch((err) => {
         //logger.error(`Failed to connect to MongoDB (${err})`, "DB");

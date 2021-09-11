@@ -8,11 +8,9 @@ $.getJSON("/api/video").done((data) => {
         img.src = data[i].thumbnail;
         img.classList.add("video-img");
         video.appendChild(img);
-        video.setAttribute("v-id", data[i].id);
         document.getElementsByClassName("container")[0].appendChild(video);
 
         video.addEventListener("click", (e) => {
-          console.log("CLICK " + data[i].id);
           location.href = `/watch/${data[i].id}`;
         })
     }
