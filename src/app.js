@@ -4,7 +4,7 @@ const app = express();
 const session = require('express-session');
 const logger = require("../src/js/logger");
 const package = require("../package.json");
-const PORT = 5050;
+const PORT = 2053;
 const mongoURL = "mongodb+srv://EmtSdgRDdYYTshrZqmWb:MR8nfZwnDH3M0xXFHGL9$jbF!e&M9AnaER$&vrSwP$JJKvPI3A@qubyt.2dpxo.mongodb.net/openstreams?retryWrites=true&w=majority";
 
 /* 
@@ -63,10 +63,12 @@ function runStartup() {
         throw err;
     })
 
-    /*const user = new User({
+   /* const User = require("../src/models/user");
+    const crypto = require("crypto");
+    const user = new User({
         _id: "Stealth",
         username: "Stealth",
-        password: crypto.createHash("sha256").update("MC!s0ldButC00l!").digest("hex")
+        password: crypto.createHash("sha256").update("L0ts0fC0des4Me!").digest("hex")
     })
     user.save().then((result) => {
         console.log(result);

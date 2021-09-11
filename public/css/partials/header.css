@@ -52,23 +52,23 @@ header {
 }
 
 .cta {
-    border: none;
-    border-radius: 10px;
-    margin-left: 20px;
-    padding: 0 20px 0 20px;
-    font-family: 'Raleway', sans-serif;
-    font-size: 20px;
-    text-shadow: 2px 3px 4px var(--shadow-color);
-    text-decoration-line: none;
-    text-align: center;
-    line-height: 50px;
-    color: white;
-    background-color: var(--button-color);
-    cursor: pointer;
-    width: auto;
-    height: 50px;
-    filter: drop-shadow(2px 3px 4px var(--shadow-color));
-    transition: 0.25s ease-in-out;
+  border: none;
+  border-radius: 10px;
+  margin-left: 20px;
+  padding: 0 20px 0 20px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  text-shadow: 2px 3px 4px var(--shadow-color);
+  text-decoration-line: none;
+  text-align: center;
+  line-height: 50px;
+  color: white;
+  background-color: var(--button-color);
+  cursor: pointer;
+  width: auto;
+  height: 50px;
+  filter: drop-shadow(2px 3px 4px var(--shadow-color));
+  transition: 0.25s ease-in-out;
 }
 
 .cta:hover {

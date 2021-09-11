@@ -1,6 +1,4 @@
-console.log("BOI");
 $.getJSON("/api/video").done((data) => {
-    console.log(data);
     for (const i in data) {
         const video = document.createElement("button");
         const img = document.createElement("img");

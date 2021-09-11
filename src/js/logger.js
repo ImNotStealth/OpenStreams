@@ -32,7 +32,7 @@ function info(message) {
 function info(message, category) {
     if (category) category = " [" + category + "]";
     else category = "";
-    console.log("[OpenStreams/INFO]" + category + ": "  + message + "\x1b[0m");
+    console.log(`[${new Date().toLocaleTimeString()}] [OpenStreams/INFO]${category}: ${message}\x1b[0m`);
 }
 
 function debug(message) {
@@ -41,7 +41,7 @@ function debug(message) {
 function debug(message, category) {
     if (category) category = " [" + category + "]";
     else category = "";
-    console.debug("\x1b[33m[OpenStreams/DEBUG]" + category + ": "  + message + "\x1b[0m");
+    console.debug(`\x1b[33m [${new Date().toLocaleTimeString()}] [OpenStreams/DEBUG]${category}: ${message}\x1b[0m`);
 }
 
 function error(message) {
@@ -50,7 +50,7 @@ function error(message) {
 function error(message, category) {
     if (category) category = " [" + category + "]";
     else category = "";
-    console.error("\x1b[31m[OpenStreams/ERROR]" + category + ": "  + message + "\x1b[0m");
+    console.error(`\x1b[31m [${new Date().toLocaleTimeString()}] [OpenStreams/ERROR]${category}: ${message}\x1b[0m`);
 }
 
 module.exports.info = info;

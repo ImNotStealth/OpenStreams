@@ -1,10 +1,10 @@
 body {
-    background-color: #1c1c1c;
+  background-color: #1c1c1c;
 
-    --login-color: #2c2c2c;
-    --shadow-color: #181515;
-    --button-color: #252525;
-    --button-hover-color: #303030;
+  --login-color: #2c2c2c;
+  --shadow-color: #181515;
+  --button-color: #252525;
+  --button-hover-color: #303030;
 }
 
 ::-webkit-scrollbar {
@@ -78,7 +78,7 @@ body {
 }
 
 .video {
-  background-color: var(--button-color);
+  background-color: transparent;
   filter: drop-shadow(2px 3px 4px var(--shadow-color));
   border-radius: 20px;
   border: none;
@@ -87,11 +87,11 @@ body {
   transition: 0.25s ease-in-out;
   flex: 1 0 auto;
   margin: 10px;
+  cursor: pointer;
 }
 
 .video:hover {
-  background-color: var(--button-hover-color);
-  cursor: pointer;
+  filter: drop-shadow(2px 3px 4px #00aeff);
 }
 
 .video-img {
