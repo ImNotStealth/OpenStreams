@@ -4,31 +4,127 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="/css/partials/header.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 </head>
 <body>
+   <script>
+      const s = '<%- JSON.stringify(session) %>';
+      const session = JSON.parse(s);
+    </script>
     <header>
         <a class="main-link" href="/">OpenStreams</a>
+        <!--<nav>
+            <input style="transform: translate(-50%, 0);" type="text">
+        </nav>-->
         <nav>
-            <ul class="nav__links">
-                <!--<a href="/cosmetics/capes" class="cta">Capes</a>
-                <a href="/cosmetics/hats" class="cta">Hats</a>
-                <a href="/cosmetics/create" class="cta">Create Cosmetic</a>-->
-            </ul>
-        </nav>
-        <a href="/auth/logout" class="cta">Log out</a>
-        <p class="menu cta">Menu</p>
+            <div class="drop-btn">
+               <img class="user-avatar" src="https://cdn.qubyt.net/open-streams/assets/none.png">
+            </div>
+            <div class="wrapper">
+               <ul class="menu-bar">
+                  <li>
+                     <a href="/">
+                        <div class="icon">
+                           <span class="fas fa-home"></span>
+                        </div>
+                        Home 
+                     </a>
+                  </li>
+                  <li>
+                     <a href="#">
+                        <div class="icon">
+                           <span class="fas fa-upload"></span>
+                        </div>
+                        Upload 
+                     </a>
+                  </li>
+                  <li class="setting-item">
+                     <a href="#">
+                        <div class="icon">
+                           <span class="fas fa-user"></span>
+                        </div>
+                        Account<i class="fas fa-angle-right"></i>
+                     </a>
+                  </li>
+                  <!--<li class="help-item">
+                     <a href="#">
+                        <div class="icon">
+                           <span class="fas fa-question-circle"></span>
+                        </div>
+                        Help & support <i class="fas fa-angle-right"></i>
+                     </a>
+                  </li>-->
+               </ul>
+               <!-- Settings & privacy Menu-items -->
+               <ul class="setting-drop">
+                  <li class="arrow back-setting-btn"><span class="fas fa-arrow-left fa-fw"></span>Account</li>
+                  <li>
+                     <a href="#">
+                        <div class="icon">
+                           <span class="fas fa-user"></span>
+                        </div>
+                        Personal info 
+                     </a>
+                  </li>
+                  <li>
+                     <a href="#">
+                        <div class="icon">
+                           <span class="fas fa-lock"></span>
+                        </div>
+                        Password 
+                     </a>
+                  </li>
+                  <li>
+                     <a href="/auth/logout">
+                        <div class="icon">
+                           <span class="fas fa-sign-out-alt"></span>
+                        </div>
+                        Log out 
+                     </a>
+                  </li>
+               </ul>
+               <!-- Help & support Menu-items -->
+               <!--<ul class="help-drop">
+                  <li class="arrow back-help-btn"><span class="fas fa-arrow-left fa-fw"></span>Help & support</li>
+                  <li>
+                     <a href="#">
+                        <div class="icon">
+                           <span class="fas fa-question-circle"></span>
+                        </div>
+                        Help centre 
+                     </a>
+                  </li>
+                  <li>
+                     <a href="#">
+                        <div class="icon">
+                           <span class="fas fa-envelope"></span>
+                        </div>
+                        Support Inbox 
+                     </a>
+                  </li>
+                  <li>
+                     <a href="#">
+                        <div class="icon">
+                           <span class="fas fa-comment-alt"></span>
+                        </div>
+                        Send feedback 
+                     </a>
+                  </li>
+                  <li>
+                     <a href="#">
+                        <div class="icon">
+                           <span class="fas fa-exclamation-circle"></span>
+                        </div>
+                        Report problem 
+                     </a>
+                  </li>
+               </ul>-->
+            </div>
+         </nav>
     </header>
-    
-    <div class="overlay">
-        <a class="close">&times;</a>
-        <div class="overlay__content">
-            <!--<a href="/cosmetics/capes">Capes</a>
-            <a href="/cosmetics/hats">Hats</a>
-            <a href="/cosmetics/create">Create Cosmetic</a>-->
-            <a href="/auth/logout">Log out</a>
-        </div>
-    </div>
+
     <script type="text/javascript" src="/js/partials/header.js"></script>
 </body>
 </html>

@@ -60,6 +60,10 @@ router.get('/:id', async(req, res) => {
             url: url,
             method: 'HEAD'
         }, function(error, response, body){
+            if (!response) {
+                logger.error("Error while loading video (most likely it was recently added or wrongly configured)", "MOVIE-REQUEST");
+                return;
+            }
             setResponseHeaders(response.headers);
             pipeToResponse();
         });

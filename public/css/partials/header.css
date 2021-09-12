@@ -1,15 +1,16 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Raleway', sans-serif;
 }
 
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 10%;
-    background-color: var(--login-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10%;
+  background-color: var(--login-color);
 }
 
 .nav__links a,
@@ -73,6 +74,26 @@ header {
 
 .cta:hover {
     background-color: var(--button-hover-color);
+}
+
+.user-button {
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  transition: 0.25s ease-in-out;
+  background-color: var(--button-color);
+}
+
+.user-button:hover {
+  filter: drop-shadow(5px 5px 5px #000);
+}
+
+.user-avatar {
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
 }
 
 /*
@@ -144,4 +165,97 @@ header {
   .menu {
     display: initial;
   }
+}
+nav .drop-btn{
+  width: 50px;
+  height: 50px;
+  background: #242526;
+  border-radius: 50%;
+}
+nav .tooltip{
+  position: absolute;
+  right: 20px;
+  bottom: -20px;
+  height: 15px;
+  width: 15px;
+  background: #242526;;
+  transform: rotate(45deg);
+  display: none;
+}
+nav .tooltip.show{
+  display: block;
+}
+nav .wrapper{
+  position: fixed;
+  top: 90px;
+  right: 2%;
+  display: flex;
+  width: 350px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #242526;
+  display: none;
+  z-index: 2;
+  transition: 0.3s ease-in-out;
+  filter: drop-shadow(2px 3px 4px var(--shadow-color));
+}
+nav .wrapper.show{
+  display: block;
+  display: flex;
+}
+.wrapper ul{
+  width: 400px;
+  list-style: none;
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+.wrapper ul li{
+  line-height: 55px;
+}
+.wrapper ul li a{
+  position: relative;
+  color: #b0b3b8;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 0 10px;
+  display: flex;
+  border-radius: 8px;
+  align-items: center;
+  text-decoration: none;
+  transition: 0.2s ease-in-out;
+}
+.wrapper ul li:hover a{
+  background: #3A3B3C;
+}
+ul li a .icon{
+  height: 40px;
+  width: 40px;
+  margin-right: 13px;
+  background: #ffffff1a;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border-radius: 50%;
+}
+ul li a .icon span{
+  line-height: 40px;
+  font-size: 20px;
+  color: #b0b3b8;
+}
+ul li a i{
+  position: absolute;
+  right: 10px;
+  font-size: 25px;
+  pointer-events: none;
+}
+.wrapper ul.setting-drop,
+.wrapper ul.help-drop{
+  display: none;
+}
+.wrapper .arrow{
+  padding-left: 10px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #b0b3b8;
+  cursor: pointer;
 }

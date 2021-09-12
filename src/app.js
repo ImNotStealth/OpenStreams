@@ -38,6 +38,7 @@ const authRouter = require("../src/routes/auth");
 const watchRouter = require("../src/routes/watch");
 
 const apiVideoRouter = require("../src/routes/api/apiVideo");
+const apiUserRouter = require("../src/routes/api/apiUser");
 
 const noPageRouter = require('../src/routes/404');
 
@@ -47,6 +48,7 @@ app.use('/', loginRouter);
 app.use("/auth", new authRouter(mongoose));
 app.use("/watch", watchRouter);
 app.use("/api/video", new apiVideoRouter(mongoose));
+app.use("/api/user", new apiUserRouter(mongoose));
 app.use(noPageRouter);
 
 function runStartup() {
