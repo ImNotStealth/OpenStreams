@@ -91,7 +91,7 @@ body {
 }
 
 .video:hover {
-  filter: drop-shadow(2px 3px 4px #00aeff);
+  filter: drop-shadow(0px 0px 10px #00aeff);
 }
 
 .video-img {
