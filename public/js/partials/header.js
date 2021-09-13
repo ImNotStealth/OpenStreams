@@ -23,6 +23,10 @@ $.getJSON(`/api/user/${session.username}`).done((data) => {
 
 drop_btn.onclick = (()=>{
   menu_wrapper.classList.toggle("show");
+  if (!menu_wrapper.classList.contains("show")) {
+    menu_bar.style.marginLeft = "0px";
+    setting_drop.style.display = "none";
+  }
 });
 setting_item.onclick = (()=>{
   menu_bar.style.marginLeft = "-350px";

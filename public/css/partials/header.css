@@ -186,7 +186,7 @@ nav .tooltip.show{
   display: block;
 }
 nav .wrapper{
-  position: fixed;
+  position: absolute;
   top: 90px;
   right: 2%;
   display: flex;
